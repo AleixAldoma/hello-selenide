@@ -1,0 +1,113 @@
+<html ng-app="robobar" class="ng-scope"><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <title>Robobar - Futuristic drinks</title>
+    <link rel="stylesheet" href="/content/darkly/bootstrap.css">
+    <link rel="stylesheet" href="/content/robobar.css">
+
+</head>
+<body><script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.26.14'><\/script>".replace("HOST", location.hostname));
+//]]></script><script async="" src="/browser-sync/browser-sync-client.js?v=2.26.14"></script>
+
+    <robo-robobar class="ng-isolate-scope"><div class="container">
+    <div class="row">
+        <h1 class="col-12 display-2">Robobar
+            <small class="text-muted">Futuristic drinks</small>
+        </h1>
+    </div>
+    <!-- ngView: --><div ng-view="" class="ng-scope"><robo-place-order class="ng-scope ng-isolate-scope"><div class="row">
+    <h2 class="col-12 display-4">Place order - prrrt</h2>
+</div>
+<div class="row">
+    <table class="table col-12">
+        <thead>
+            <tr>
+                <th>Drink</th>
+                <th colspan="2">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ngRepeat: drink in cpt.drinks --><tr ng-repeat="drink in cpt.drinks" class="ng-scope">
+                <td class="ng-binding">Roba Cola</td>
+                <td class="ng-binding">€1.25</td>
+                <td>
+                    <div class="row">
+                        <div class="col-5 input-group">
+                            <div class="input-group-prepend">
+                                <button ng-click="cpt.decrement(drink)" class="btn btn-dark">-</button>
+                            </div>
+                            <input class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" type="number" ng-model="drink.amount" readonly="">
+                            <div class="input-group-append">
+                                <button ng-click="cpt.increment(drink)" class="btn btn-dark">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr><!-- end ngRepeat: drink in cpt.drinks --><tr ng-repeat="drink in cpt.drinks" class="ng-scope">
+                <td class="ng-binding">Robo Beer</td>
+                <td class="ng-binding">€2.00</td>
+                <td>
+                    <div class="row">
+                        <div class="col-5 input-group">
+                            <div class="input-group-prepend">
+                                <button ng-click="cpt.decrement(drink)" class="btn btn-dark">-</button>
+                            </div>
+                            <input class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" type="number" ng-model="drink.amount" readonly="">
+                            <div class="input-group-append">
+                                <button ng-click="cpt.increment(drink)" class="btn btn-dark">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr><!-- end ngRepeat: drink in cpt.drinks --><tr ng-repeat="drink in cpt.drinks" class="ng-scope">
+                <td class="ng-binding">Rob(w)ine</td>
+                <td class="ng-binding">€3.00</td>
+                <td>
+                    <div class="row">
+                        <div class="col-5 input-group">
+                            <div class="input-group-prepend">
+                                <button ng-click="cpt.decrement(drink)" class="btn btn-dark">-</button>
+                            </div>
+                            <input class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" type="number" ng-model="drink.amount" readonly="">
+                            <div class="input-group-append">
+                                <button ng-click="cpt.increment(drink)" class="btn btn-dark">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr><!-- end ngRepeat: drink in cpt.drinks -->
+            <tr>
+                <th>Total</th>
+                <th class="ng-binding">€3.25</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-success" ng-disabled="!cpt.submitEnabled()" ng-click="cpt.submit()" type="submit">Submit order</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        &nbsp;
+    </div>
+</div></robo-place-order></div>
+    <div class="alert alert-default" role="alert">
+        <h4 class="alert-heading">Prrt!</h4>
+        Curious about the <a target="_blank" href="reports/coverage/index.html">code coverage report</a> or the <a target="_blank" href="reports/mutation/html/index.html">mutation testing report</a>? 
+    </div>
+</div></robo-robobar>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-route/angular-route.min.js"></script>
+    <script src="/src/app.module.js"></script>
+    <script src="/src/routes.js"></script>
+    <script src="/src/services/OrderService.js"></script>
+    <script src="/src/services/DrinkService.js"></script>
+    <script src="/src/robobar-component/robobar-component.js"></script>
+    <script src="/src/place-order-component/place-order-component.js"></script>
+    <script src="/src/review-order-component/review-order-component.js"></script>
+    <script src="/src/success-component/success-component.js"></script>
+
+
+
+</body></html>

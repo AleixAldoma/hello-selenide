@@ -1,0 +1,1 @@
+{"uuid":"8fad4612-0fce-4334-8f51-cc3e30d5cd1a","name":"beerTest()","children":["f5d84898-8d85-446c-a2f9-25ee2dd100bc"],"befores":[{"name":"setupTest","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1644395033125,"stop":1644395033771}],"afters":[],"start":1644395033108,"stop":1644395034230}
