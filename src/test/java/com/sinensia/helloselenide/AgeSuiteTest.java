@@ -39,6 +39,7 @@ public class AgeSuiteTest {
         cartPage.total().shouldBe(text("€2.50"));
         cartPage.checkout();
         checkoutPage.getAgeInput().shouldNot(exist);
+        checkoutPage.getOrder().shouldBe(enabled);
         checkoutPage.order();
         orderPage.getSentMessage().shouldBe(text("Coming right up! ~bzzzt~"));
     }
@@ -52,8 +53,10 @@ public class AgeSuiteTest {
         cartPage.addBeer();
         cartPage.total().shouldBe(text("€4.00"));
         cartPage.checkout();
+        checkoutPage.getOrder().shouldBe(disabled);
         checkoutPage.getAgeInput().should(exist);
         checkoutPage.setAge("17");
+        checkoutPage.getOrder().shouldBe(enabled);
         checkoutPage.order();
         orderPage.getAlertDiv().shouldNotBe(hidden);
     }
@@ -67,8 +70,10 @@ public class AgeSuiteTest {
         cartPage.addBeer();
         cartPage.total().shouldBe(text("€4.00"));
         cartPage.checkout();
+        checkoutPage.getOrder().shouldBe(disabled);
         checkoutPage.getAgeInput().should(exist);
         checkoutPage.setAge("19");
+        checkoutPage.getOrder().shouldBe(enabled);
         checkoutPage.order();
         orderPage.getAlertDiv().shouldBe(hidden);
         orderPage.getSentMessage().shouldBe(text("Coming right up! ~bzzzt~"));
