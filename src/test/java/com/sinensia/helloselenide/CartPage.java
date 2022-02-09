@@ -32,6 +32,9 @@ public class CartPage {
     public void checkout() {
         btnCheckout.click();
     }
+    public SelenideElement getCheckout() {
+        return btnCheckout;
+    }
 
     public SelenideElement total() {
         return txtTotal;

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.open;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -31,47 +31,46 @@ public class AgeSuiteTest {
 
     @Test
     public void underageCola() {
+        cartPage.getCheckout().shouldBe(disabled);
         cartPage.addCola();
         cartPage.total().shouldBe(text("€1.25"));
+        cartPage.getCheckout().shouldBe(enabled);
         cartPage.addCola();
         cartPage.total().shouldBe(text("€2.50"));
         cartPage.checkout();
-        {
-            assert (!checkoutPage.getAgeInput().exists());
-        }
+        checkoutPage.getAgeInput().shouldNot(exist);
         checkoutPage.order();
         orderPage.getSentMessage().shouldBe(text("Coming right up! ~bzzzt~"));
     }
 
     @Test
     public void underageBeer() {
+        cartPage.getCheckout().shouldBe(disabled);
         cartPage.addBeer();
         cartPage.total().shouldBe(text("€2.00"));
+        cartPage.getCheckout().shouldBe(enabled);
         cartPage.addBeer();
         cartPage.total().shouldBe(text("€4.00"));
         cartPage.checkout();
-        {
-            assert (checkoutPage.getAgeInput().exists());
-        }
+        checkoutPage.getAgeInput().should(exist);
         checkoutPage.setAge("17");
         checkoutPage.order();
-        {
-            assert (orderPage.getAlertDiv().isDisplayed());
-        }
+        orderPage.getAlertDiv().shouldNotBe(hidden);
     }
 
     @Test
     public void adultBeer() {
+        cartPage.getCheckout().shouldBe(disabled);
         cartPage.addBeer();
         cartPage.total().shouldBe(text("€2.00"));
+        cartPage.getCheckout().shouldBe(enabled);
         cartPage.addBeer();
         cartPage.total().shouldBe(text("€4.00"));
         cartPage.checkout();
-        {
-            assert (checkoutPage.getAgeInput().exists());
-        }
+        checkoutPage.getAgeInput().should(exist);
         checkoutPage.setAge("19");
         checkoutPage.order();
+        orderPage.getAlertDiv().shouldBe(hidden);
         orderPage.getSentMessage().shouldBe(text("Coming right up! ~bzzzt~"));
     }
 }
