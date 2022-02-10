@@ -1,0 +1,72 @@
+<html ng-app="robobar" class="ng-scope"><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <title>Robobar - Futuristic drinks</title>
+    <link rel="stylesheet" href="/content/darkly/bootstrap.css">
+    <link rel="stylesheet" href="/content/robobar.css">
+
+</head>
+<body><script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.26.14'><\/script>".replace("HOST", location.hostname));
+//]]></script><script async="" src="/browser-sync/browser-sync-client.js?v=2.26.14"></script>
+
+    <robo-robobar class="ng-isolate-scope"><div class="container">
+    <div class="row">
+        <h1 class="col-12 display-2">Robobar
+            <small class="text-muted">Futuristic drinks</small>
+        </h1>
+    </div>
+    <!-- ngView: --><div ng-view="" class="ng-scope"><robo-review-order class="ng-scope ng-isolate-scope"><div class="row">
+    <h2 class="col-12 display-4">Order review
+        <small class="text-muted ng-binding">- 2 drinks</small>
+    </h2>
+</div>
+<div class="row">
+    <div class="col-12">
+        <!-- ngIf: cpt.error -->
+    </div>
+    <div class="col-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Drink</th>
+                    <th>#</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ngRepeat: drink in cpt.order --><tr ng-repeat="drink in cpt.order" class="ng-scope">
+                    <td>
+                        <em class="ng-binding">Roba Cola</em>
+                    </td>
+                    <td class="ng-binding">2</td>
+                    <td class="ng-binding">€1.25</td>
+                    <td class="ng-binding">€2.50</td>
+                </tr><!-- end ngRepeat: drink in cpt.order -->
+            </tbody>
+        </table>
+        <form class="ng-pristine ng-valid">
+            <!-- ngIf: cpt.ageCheck -->
+            <button class="btn btn-default" ng-click="cpt.cancel()" type="button">Cancel</button>
+            <button class="btn btn-success" ng-disabled="!cpt.age &amp;&amp; cpt.ageCheck" ng-click="cpt.submit()" type="submit">Order</button>
+        </form>
+    </div>
+</div></robo-review-order></div>
+    <div class="alert alert-default" role="alert">
+        <h4 class="alert-heading">Prrt!</h4>
+        Curious about the <a target="_blank" href="reports/coverage/index.html">code coverage report</a> or the <a target="_blank" href="reports/mutation/html/index.html">mutation testing report</a>? 
+    </div>
+</div></robo-robobar>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-route/angular-route.min.js"></script>
+    <script src="/src/app.module.js"></script>
+    <script src="/src/routes.js"></script>
+    <script src="/src/services/OrderService.js"></script>
+    <script src="/src/services/DrinkService.js"></script>
+    <script src="/src/robobar-component/robobar-component.js"></script>
+    <script src="/src/place-order-component/place-order-component.js"></script>
+    <script src="/src/review-order-component/review-order-component.js"></script>
+    <script src="/src/success-component/success-component.js"></script>
+
+
+
+</body></html>
